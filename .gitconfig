@@ -1,0 +1,31 @@
+[users]
+	name = Arbit Chen
+[user]
+	name = Arbit Chen
+	email = arbit30719@gmail.com
+[core]
+	editor = /usr/bin/vim
+	excludesfile = /Users/arbit/.gitignore_global
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	log = auto
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+	lgmg = log  --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  algmg = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  lg = log  --no-merges --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  alg = log --no-merges --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	d = difftool
+#[diff]
+#  external = git_diff_wrapper
+#[core]
+#  pager =
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
