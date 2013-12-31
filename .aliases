@@ -1,0 +1,19 @@
+# Easier navigation: .., ..., ...., ....., ~ and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~" 
+alias -- -="cd -"
+
+# Easy typing
+alias ll='ls -al'
+alias gitk='gitk 2>/dev/null'
+
+# Tree command on Mac
+function tree {
+find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+}
+
+# Using MacVim
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'

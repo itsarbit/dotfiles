@@ -1,0 +1,28 @@
+# Enables coloring on terminal
+export CLICOLOR=1
+
+# Set ls coloring on terminal
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+# Full directory path shown
+export PS1='\u@\h:\w$ '
+
+# Tell grep to highlight matches
+export GREP_OPTIONS='--color=auto'
+
+# Set Java and Android home
+export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_13.jdk/Contents/Home
+export JAVA_HOME=$JAVA7_HOME
+export ANDROID_HOME=/Developer/android-sdk-mac_x86/
+
+# Set Hadoop and HBase home
+export HD_HOME=/Developer/hd
+export HADOOP_HOME=/Developer/hd/hadoop
+export HBASE_HOME=/Developer/hd/hbase
+
+# Set Golang home
+export GOROOT=$HTC_HOME/go_1.2rc5
+export GOPATH=$HTC_HOME/workspace/go
+
+# Set HTC working directory home
+export HTC_HOME=/Users/arbit/Dropbox/Document/hTC
