@@ -1,0 +1,19 @@
+# MacPorts Installer addition on 2010-08-08_at_13:19:11: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+# Export Android SDK and tools (such as adb)
+export PATH=/Developer/android-sdk/tools:$PATH
+export PATH=~/android/tools:$PATH
+
+# Maven tool setup
+export PATH=$M2:$PATH
+
+# Golang path setup
+export PATH=$PATH:$GOROOT/bin
+
+# HBase path setup
+export PATH=$HBASE_HOME/bin:$PATH
+
+# Arcanist tool (used for Phabricator)
+export PATH=/Developer/arcanist/bin:$PATH

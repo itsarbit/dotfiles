@@ -15,14 +15,19 @@ export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_13.jdk/Contents/Hom
 export JAVA_HOME=$JAVA7_HOME
 export ANDROID_HOME=/Developer/android-sdk-mac_x86/
 
+# Set Maven2 home
+export M2_HOME=/usr/share/maven
 # Set Hadoop and HBase home
+#
 export HD_HOME=/Developer/hd
 export HADOOP_HOME=/Developer/hd/hadoop
+export HADOOP_OPTS="-Djava.security.krb5.realm=OX.AC.UK -Djava.security.krb5.kdc=kdc0.ox.ac.uk:kdc1.ox.ac.uk"
 export HBASE_HOME=/Developer/hd/hbase
+
+# Set HTC working directory home
+export HTC_HOME=/Users/arbit/Dropbox/Document/hTC
 
 # Set Golang home
 export GOROOT=$HTC_HOME/go_1.2rc5
 export GOPATH=$HTC_HOME/workspace/go
 
-# Set HTC working directory home
-export HTC_HOME=/Users/arbit/Dropbox/Document/hTC

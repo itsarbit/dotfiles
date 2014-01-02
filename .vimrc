@@ -11,6 +11,7 @@ set expandtab
 set noai
 set spell
 set rtp+=~/.vim/bundle/vundle/
+set tw=80
 call vundle#rc()
 
 set encoding=utf-8
@@ -415,7 +416,7 @@ if has("gui_running")
 endif
 
 " enable thrift syntax
-au BufRead,BufNewFile *.thrift set filetype=thrift  
+au BufRead,BufNewFile *.thrift set filetype=thrift
 au! Syntax thrift source ~/.vim/syntax/thrift.vim
 
 " plugins
