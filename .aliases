@@ -5,6 +5,10 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~" 
 alias -- -="cd -"
+alias sc="cd ~/Sources"
+alias wk="cd ~/Sources/workspace"
+#alias mvn='mvn311'
+alias mvn=mvn3
 
 # Easy typing
 alias ll='ls -al'
@@ -12,3 +16,6 @@ alias gitk='gitk 2>/dev/null'
 
 # Using MacVim
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+
+# Using Tmux vim color scheme
+alias tmux="TERM=screen-256color-bce tmux"

@@ -4,7 +4,7 @@
 	name = Arbit Chen
 	email = arbit30719@gmail.com
 [core]
-	editor = /usr/bin/vim
+	editor = /Applications/MacVim.app/Contents/MacOS/Vim
 	excludesfile = /Users/arbit/.gitignore_global
 [color]
 	diff = auto
@@ -29,3 +29,5 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+[push]
+	default = matching

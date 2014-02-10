@@ -17,8 +17,11 @@ call vundle#rc()
 set encoding=utf-8
 set fillchars+=stl:\ ,stlnc:\
 
+"set guifont=Monaco\ for\ Powerline:h16
+
 " Vundle> Utilities
 Bundle 'gmarik/vundle'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'jdevera/vim-protobuf-syntax'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Lokaltog/powerline-fonts'
@@ -46,11 +49,11 @@ Bundle 'tpope/vim-rails'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'tpope/vim-markdown'
 if has('ruby')
-Bundle 'vim-scripts/rubycomplete.vim'
+"Bundle 'vim-scripts/rubycomplete.vim'
 end
 Bundle 'tangledhelix/vim-octopress'
-Bundle 'Rip-Rip/clang_complete'
-Bundle 'itszero/javacomplete'
+"Bundle 'Rip-Rip/clang_complete'
+"Bundle 'itszero/javacomplete'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'Blackrush/vim-gocode.git'
@@ -62,9 +65,9 @@ Bundle 'scrooloose/vim-space'
 " Bundle 'scrooloose/syntastic'
 " Vundle> Color scheme
 Bundle 'altercation/vim-colors-solarized'
+colorscheme solarized
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
-colorscheme solarized
 filetype plugin indent on     " required!
 
 " Save the current file using th sudo command
@@ -291,7 +294,7 @@ end
 syntax enable
 set bg=dark
 set t_Co=256
-let g:solarized_termcolors = 16
+"let g:solarized_termcolors = 16
 colors solarized
 
 " Handle multiple buffers better
@@ -441,11 +444,11 @@ let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 " > rubycomplete
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-highlight Pmenu ctermbg=238 gui=bold
+"autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+"autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+"autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+"autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+"highlight Pmenu ctermbg=238 gui=bold
 " > supertab
 let g:SuperTabDefaultCompletionType = "context"
 " > javacomplete
@@ -463,7 +466,9 @@ autocmd FileType tex call SuperTabSetDefaultCompletionType("<c-x><c-o>")
 map <silent> <Leader>ls :silent !/Applications/Skim.app/Contents/SharedSupport/displayline
   \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p" <CR>
 ">> golang
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
+"autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [

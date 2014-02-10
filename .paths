@@ -2,18 +2,25 @@
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
-# Export Android SDK and tools (such as adb)
-export PATH=/Developer/android-sdk/tools:$PATH
-export PATH=~/android/tools:$PATH
+# Golang
+export PATH=$GOROOT/bin:$PATH
 
-# Maven tool setup
-export PATH=$M2:$PATH
-
-# Golang path setup
-export PATH=$PATH:$GOROOT/bin
-
-# HBase path setup
+# HBase
 export PATH=$HBASE_HOME/bin:$PATH
 
+# Zookeeper
+export PATH=$ZK_HOME/bin:$PATH
+
+# Hbase
+export PATH=$REDIS_HOME/src:$PATH
+
+# Android Platform Tools
+export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
+
+# Maven 3.1.1
+export PATH=/Users/arbit/Sources/apache/apache-maven-3.1.1/bin:$PATH
+
 # Arcanist tool (used for Phabricator)
-export PATH=/Developer/arcanist/bin:$PATH
+export PATH=$SC/facebook/arcanist/bin:$PATH
+
+
