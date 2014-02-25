@@ -39,3 +39,6 @@ export GOPATH=$SC/workspace/go
 
 # Set Redis home
 export REDIS_HOME=$SC/pivotal/redis
+
+# Set Python import path
+export PYTHONPATH=$SC/workspace/python

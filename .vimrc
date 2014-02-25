@@ -10,6 +10,7 @@ set shiftwidth=4
 set expandtab
 set noai
 set spell
+set colorcolumn=80
 set rtp+=~/.vim/bundle/vundle/
 set tw=80
 call vundle#rc()
@@ -48,6 +49,7 @@ Bundle 'tpope/vim-rails'
 " Bundle 'kchmck/vim-coffee-script'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'tpope/vim-markdown'
+Bundle 'chase/vim-ansible-yaml'
 if has('ruby')
 "Bundle 'vim-scripts/rubycomplete.vim'
 end
