@@ -10,7 +10,7 @@ set shiftwidth=4
 set expandtab
 set noai
 set spell
-set colorcolumn=80
+set colorcolumn=100
 set rtp+=~/.vim/bundle/vundle/
 set tw=80
 call vundle#rc()
@@ -70,6 +70,8 @@ Bundle 'altercation/vim-colors-solarized'
 colorscheme solarized
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
+Bundle 'dgryski/vim-godef'
+"g:godef_split=2
 filetype plugin indent on     " required!
 
 " Save the current file using th sudo command
@@ -497,5 +499,5 @@ let g:tagbar_type_go = {
     \ },
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
-\ }
+    \}
 let g:SuperTabDefaultCompletionType = "context"

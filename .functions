@@ -39,3 +39,18 @@ GREEN="\[\033[0;32m\]"
 NO_COLOR="\[\033[0m\]"
 
 PS1="$GREEN\u@\h:$NO_COLOR\w$YELLOW\$(parse_git_branch)$NO_COLOR\$ "
+
+function pgrep () {
+  ps aux | grep  
+}
+
+# function to execute built-in cd
+fasd_cd() {
+  if [ $# -le 1 ]; then
+    fasd "$@"
+  else
+    local _fasd_ret="$(fasd -e echo "$@")"
+    [ -z "$_fasd_ret" ] && return
+    [ -d "$_fasd_ret" ] && cd "$_fasd_ret" || echo "$_fasd_ret"
+  fi
+}
