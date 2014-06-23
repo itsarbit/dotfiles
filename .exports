@@ -42,3 +42,7 @@ export REDIS_HOME=$SC/pivotal/redis
 
 # Set Python import path
 export PYTHONPATH=$SC/workspace/python
+export OFEXPORT_HOME="/Users/arbit/Sources/github/3rd-party/psidell/ofexport"
+export PATH=$PATH:"$OFEXPORT_HOME/bin"
+export DOCKER_HOST=tcp://:2375
+export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
