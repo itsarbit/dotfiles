@@ -79,3 +79,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+source ~/.exports
+source ~/.exports
+source ~/.paths
+source ~/.aliases
+source ~/.functions
+eval "$(fasd --init auto)"

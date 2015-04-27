@@ -11,7 +11,7 @@ set expandtab
 set noai
 set spell
 set colorcolumn=100
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 set tw=80
 call vundle#rc()
 
@@ -431,7 +431,7 @@ au! Syntax thrift source ~/.vim/syntax/thrift.vim
 " > powerline
 "let g:Powerline_theme="skwp"
 "let g:Powerline_colorscheme="skwp"
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 " show me trailer whitespace is found in current buffer
 call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 " > ack

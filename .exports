@@ -1,48 +1,10 @@
-# Mac OSX Working Places
-export SC=~/Sources
+# Basic
+export DEVHOME=~/Develop
+export WORKSPACE=$DEVHOME/workspace
 
-# Enables coloring on terminal
-export CLICOLOR=1
+# arc
+export ARC_HOME=$WORKSPACE/3rdparty/arc
 
-# Set ls coloring on terminal
-export LSCOLORS=ExFxCxDxBxegedabagacad
-
-# Full directory path shown
-export PS1='\u@\h:\w$ '
-
-# Tell grep to highlight matches
-export GREP_OPTIONS='--color=auto'
-
-# Set Java and Android home
-#export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home
-export ANDROID_HOME=$SC/google/adt-bundle-mac-x86_64-20131030/sdk
-
-# Set Maven2 home
-#export M2_HOME=/usr/share/maven
-export MAVEN_OPTS="-Xms256m -Xmx512m"
-
-# Set Hadoop and HBase home
-#export HD_HOME=/Developer/hd
-export HBASE_HOME=$SC/workspace/hbase
-export HADOOP_OPTS="-Djava.security.krb5.realm=OX.AC.UK -Djava.security.krb5.kdc=kdc0.ox.ac.uk:kdc1.ox.ac.uk"
-
-# Set Zookeeper home
-export ZK_HOME=$SC/workspace/zookeeper
-
-# Set HTC working directory home
-export HTC_HOME=/Users/arbit/Dropbox/Document/hTC
-
-# Set Golang home
-export GOROOT=$SC/google/go
-export GOPATH=$SC/workspace/go
-
-# Set Redis home
-export REDIS_HOME=$SC/pivotal/redis
-
-# Set Python import path
-export PYTHONPATH=$SC/workspace/python
-export OFEXPORT_HOME="/Users/arbit/Sources/github/3rd-party/psidell/ofexport"
-export PATH=$PATH:"$OFEXPORT_HOME/bin"
-export DOCKER_HOST=tcp://:2375
-export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
+# golang
+export GOROOT=$WORKSPACE/3rdparty/go
+export GOPATH=$WORKSPACE/go-path
