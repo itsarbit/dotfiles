@@ -2,10 +2,9 @@
 	name = Arbit Chen
 [user]
 	name = Arbit Chen
-	email = arbit30719@gmail.com
+	email = arbit@isarbit.net
 [core]
-	editor = /Applications/MacVim.app/Contents/MacOS/Vim
-	excludesfile = /Users/arbit/.gitignore_global
+	editor = vim
 [color]
 	diff = auto
 	status = auto

@@ -49,6 +49,7 @@ plugins=(git tmux zsh)
 
 # User configuration
 
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
