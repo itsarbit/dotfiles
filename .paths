@@ -20,9 +20,9 @@ export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
 # Arcanist tool (used for Phabricator)
 export PATH=$ARC_HOME/arcanist/bin:$PATH
 
-
-# The next line updates PATH for the Google Cloud SDK.
-export PATH=$SC/google/google-cloud-sdk/bin:$PATH
-
 # GO binary
 export PATH=$GOPATH/bin:$PATH
+
+# ZK Binary
+export PATH=$ZK_HOME/bin:$PATH
+

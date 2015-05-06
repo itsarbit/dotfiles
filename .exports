@@ -8,3 +8,15 @@ export ARC_HOME=$WORKSPACE/3rdparty/arc
 # golang
 export GOROOT=$WORKSPACE/3rdparty/go
 export GOPATH=$WORKSPACE/go-path
+
+# CSI
+export CSIROOT=$GOPATH/src/htc.com/csi
+
+# Zookeeper
+export ZK_HOME=$WORKSPACE/3rdparty/zookeeper
+
+# JAVA_HOME
+export JAVA_HOME=`/usr/libexec/java_home`
+
+# CSI Config path
+export CSI_CONF_DIR=$WORKSPACE/htc/config-test

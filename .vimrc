@@ -23,6 +23,7 @@ set fillchars+=stl:\ ,stlnc:\
 " Vundle> Utilities
 Bundle 'gmarik/vundle'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'majutsushi/tagbar'
 Bundle 'jdevera/vim-protobuf-syntax'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Lokaltog/powerline-fonts'
@@ -57,9 +58,9 @@ Bundle 'tangledhelix/vim-octopress'
 "Bundle 'Rip-Rip/clang_complete'
 "Bundle 'itszero/javacomplete'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'Blackrush/vim-gocode.git'
 " Vundle> lang-independent or multi-lang supported utilities
+Bundle 'fatih/vim-go'
+Bundle 'jstemmer/gotags'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
@@ -70,7 +71,10 @@ Bundle 'altercation/vim-colors-solarized'
 colorscheme solarized
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
-Bundle 'dgryski/vim-godef'
+" React.js
+Bundle 'mxw/vim-jsx'
+" Make sure eslint is perfectly installed
+let g:syntastic_javascript_checkers = ['eslint']
 "g:godef_split=2
 filetype plugin indent on     " required!
 
@@ -343,6 +347,7 @@ map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
 nmap <F9> :NERDTreeToggle<cr>
+nmap <F8> :TagbarToggle<cr>
 
 set exrc   "enable per-directory .vimrc
 set secure "disable unsafe commands in local .vimrc
@@ -470,9 +475,6 @@ autocmd FileType tex call SuperTabSetDefaultCompletionType("<c-x><c-o>")
 map <silent> <Leader>ls :silent !/Applications/Skim.app/Contents/SharedSupport/displayline
   \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p" <CR>
 ">> golang
-set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
-"autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
@@ -501,3 +503,30 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
     \}
 let g:SuperTabDefaultCompletionType = "context"
+
+
+let g:go_fmt_command = "goimports"
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+
+au FileType go nmap <Leader>s <Plug>(go-implements)
+
+au FileType go nmap <Leader>i <Plug>(go-info)
+
+au FileType go nmap <Leader>e <Plug>(go-rename)
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1

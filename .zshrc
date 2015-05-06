@@ -86,3 +86,9 @@ source ~/.paths
 source ~/.aliases
 source ~/.functions
 eval "$(fasd --init auto)"
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/arbit/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables bash completion for gcloud.
+source '/Users/arbit/google-cloud-sdk/completion.zsh.inc'
