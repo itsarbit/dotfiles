@@ -18,5 +18,10 @@ export ZK_HOME=$WORKSPACE/3rdparty/zookeeper
 # JAVA_HOME
 export JAVA_HOME=`/usr/libexec/java_home`
 
+# ETCD_HOME
+export ETCD_HOME=~/Develop/workspace/github/3rdparty/etcd
+
 # CSI Config path
 export CSI_CONF_DIR=$WORKSPACE/htc/config-test
+
+export CSI_LOG_DIR=/tmp

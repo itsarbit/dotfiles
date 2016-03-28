@@ -23,11 +23,17 @@ set fillchars+=stl:\ ,stlnc:\
 " Vundle> Utilities
 Bundle 'gmarik/vundle'
 Bundle 'Valloric/YouCompleteMe'
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 Bundle 'majutsushi/tagbar'
 Bundle 'jdevera/vim-protobuf-syntax'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Lokaltog/powerline-fonts'
 Bundle 'mileszs/ack.vim'
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 Bundle 'tsaleh/vim-align'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
@@ -50,7 +56,6 @@ Bundle 'tpope/vim-rails'
 " Bundle 'kchmck/vim-coffee-script'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'tpope/vim-markdown'
-Bundle 'chase/vim-ansible-yaml'
 if has('ruby')
 "Bundle 'vim-scripts/rubycomplete.vim'
 end
@@ -70,13 +75,15 @@ Bundle 'scrooloose/vim-space'
 Bundle 'altercation/vim-colors-solarized'
 colorscheme solarized
 Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
+" Bundle 'rizzatti/dash.vim'
 " React.js
 Bundle 'mxw/vim-jsx'
 " Make sure eslint is perfectly installed
 let g:syntastic_javascript_checkers = ['eslint']
 "g:godef_split=2
 filetype plugin indent on     " required!
+
+Bundle 'toyamarinyon/vim-swift'
 
 " Save the current file using th sudo command
 noremap <Leader>W :w !sudo tee % > /dev/null
@@ -236,7 +243,7 @@ vmap <S-Tab> <C-D>
 
 " have Y behave analogously to D and C rather than to dd and cc (which is
 " already done by yy):
-noremap Y y$
+noremap Y "*y
 
 " * Keystrokes -- Toggles
 

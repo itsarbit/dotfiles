@@ -3,7 +3,8 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 # Golang
-export PATH=$GOROOT/bin:$PATH
+#export PATH=$GOROOT/bin:$PATH
+export PATH=$PATH:/usr/local/go/bin
 
 # HBase
 export PATH=$HBASE_HOME/bin:$PATH
@@ -26,3 +27,5 @@ export PATH=$GOPATH/bin:$PATH
 # ZK Binary
 export PATH=$ZK_HOME/bin:$PATH
 
+# ETCD Binary
+export PATH=$ETCD_HOME:$PATH

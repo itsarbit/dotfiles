@@ -40,8 +40,6 @@ ln -s $WORKSPACE/github/arbit/dotfiles/.zshrc ~/.zshrc
 #### Setup Git
 mv ~/.gitconfig ~/.gitconfig.bak
 ln -s $WORKSPACE/github/arbit/dotfiles/.gitconfig ~/.gitconfig
-mv ~/.gitignore ~/.gitignore.bak
-ln -s $WORKSPACE/github/arbit/dotfiles/.gitignore ~/.gitignore
 
 
 #

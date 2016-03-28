@@ -92,3 +92,6 @@ source '/Users/arbit/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables bash completion for gcloud.
 source '/Users/arbit/google-cloud-sdk/completion.zsh.inc'
+
+#source $(brew --prefix nvm)/nvm.sh
+#source '/Applications/Docker/Docker Quickstart Terminal.app/Contents/Resources/Scripts/start.sh'
