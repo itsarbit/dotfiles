@@ -85,13 +85,17 @@ source ~/.exports
 source ~/.paths
 source ~/.aliases
 source ~/.functions
+source ~/.credentials
 eval "$(fasd --init auto)"
-
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/arbit/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables bash completion for gcloud.
 source '/Users/arbit/google-cloud-sdk/completion.zsh.inc'
 
 #source $(brew --prefix nvm)/nvm.sh
 #source '/Applications/Docker/Docker Quickstart Terminal.app/Contents/Resources/Scripts/start.sh'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/arbit/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/arbit/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/arbit/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/arbit/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

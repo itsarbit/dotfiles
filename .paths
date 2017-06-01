@@ -4,13 +4,13 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # Golang
 #export PATH=$GOROOT/bin:$PATH
-export PATH=$PATH:/usr/local/go/bin
+#export PATH=$PATH:/usr/local/go/bin
 
 # HBase
-export PATH=$HBASE_HOME/bin:$PATH
+#export PATH=$HBASE_HOME/bin:$PATH
 
 # Zookeeper
-export PATH=$ZK_HOME/bin:$PATH
+#export PATH=$ZK_HOME/bin:$PATH
 
 # Hbase
 export PATH=$REDIS_HOME/src:$PATH
@@ -22,10 +22,7 @@ export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
 export PATH=$ARC_HOME/arcanist/bin:$PATH
 
 # GO binary
-export PATH=$GOPATH/bin:$PATH
+# export PATH=$GOPATH/bin:$PATH
 
-# ZK Binary
-export PATH=$ZK_HOME/bin:$PATH
-
-# ETCD Binary
-export PATH=$ETCD_HOME:$PATH
+# Latex
+PATH=$PATH:/Library/Tex/texbin

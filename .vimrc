@@ -22,10 +22,12 @@ set fillchars+=stl:\ ,stlnc:\
 
 " Vundle> Utilities
 Bundle 'gmarik/vundle'
+Bundle 'klen/python-mode'
 Bundle 'Valloric/YouCompleteMe'
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
 Bundle 'majutsushi/tagbar'
 Bundle 'jdevera/vim-protobuf-syntax'
 Bundle 'Lokaltog/vim-powerline'
@@ -40,7 +42,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'sjl/splice.vim'
 Bundle 'kana/vim-textobj-user'
 Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'nelstrom/vim-textobj-rubyblock'
+" Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'kien/ctrlp.vim'
 Bundle 'airblade/vim-rooter'
 Bundle 'ervandew/supertab'
@@ -51,13 +53,12 @@ if has('mac')
 endif
 Bundle 'int3/vim-extradite'
 Bundle 'dharanasoft/rtf-highlight'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-rails'
-" Bundle 'kchmck/vim-coffee-script'
-Bundle 'ecomba/vim-ruby-refactoring'
+" Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 if has('ruby')
-"Bundle 'vim-scripts/rubycomplete.vim'
+  Bundle 'vim-scripts/rubycomplete.vim'
+  Bundle 'ecomba/vim-ruby-refactoring'
+  Bundle 'tpope/vim-rails'
 end
 Bundle 'tangledhelix/vim-octopress'
 "Bundle 'Rip-Rip/clang_complete'
@@ -74,19 +75,23 @@ Bundle 'scrooloose/vim-space'
 " Vundle> Color scheme
 Bundle 'altercation/vim-colors-solarized'
 colorscheme solarized
-Bundle 'rizzatti/funcoo.vim'
+" Bundle 'rizzatti/funcoo.vim'
 " Bundle 'rizzatti/dash.vim'
+"
 " React.js
-Bundle 'mxw/vim-jsx'
+" Bundle 'mxw/vim-jsx'
+" Plugin 'artur-shaik/vim-javacomplete2'
 " Make sure eslint is perfectly installed
 let g:syntastic_javascript_checkers = ['eslint']
 "g:godef_split=2
 filetype plugin indent on     " required!
 
-Bundle 'toyamarinyon/vim-swift'
+" use for swift
+" Bundle 'toyamarinyon/vim-swift'
 
 " Save the current file using th sudo command
 noremap <Leader>W :w !sudo tee % > /dev/null
+
 
 " * User Interface
 
@@ -245,6 +250,7 @@ vmap <S-Tab> <C-D>
 " already done by yy):
 noremap Y "*y
 
+
 " * Keystrokes -- Toggles
 
 " Keystrokes to toggle options are defined here.  They are all set to normal
@@ -352,6 +358,9 @@ map <leader>tp :tabprevious<cr>
 map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
+
+" git viewer buffer
+map <leader>gg :Extradite<cr>
 
 nmap <F9> :NERDTreeToggle<cr>
 nmap <F8> :TagbarToggle<cr>
@@ -481,6 +490,7 @@ let g:LatexBox_latexmk_options = "-pv"
 autocmd FileType tex call SuperTabSetDefaultCompletionType("<c-x><c-o>")
 map <silent> <Leader>ls :silent !/Applications/Skim.app/Contents/SharedSupport/displayline
   \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p" <CR>
+
 ">> golang
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
@@ -537,3 +547,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
