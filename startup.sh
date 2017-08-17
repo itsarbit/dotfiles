@@ -27,6 +27,8 @@ ln -s $WORKSPACE/github/arbit/dotfiles/.paths ~/.paths
 ln -s $WORKSPACE/github/arbit/dotfiles/.aliases ~/.aliases
 ln -s $WORKSPACE/github/arbit/dotfiles/.functions ~/.functions
 ln -s $WORKSPACE/github/arbit/dotfiles/.tmux.conf ~/.tmux.conf
+ln -s $WORKSPACE/github/arbit/dotfiles/.tmux.conf ~/.tmux-macosx
+ln -s $WORKSPACE/github/arbit/dotfiles/.tmux.conf ~/.tmux-linux
 
 
 #### Change default shell to zsh
@@ -63,4 +65,4 @@ vim -c 'BundleInstall' -c 'qa!'
 vim -c 'PluginInstall' -c 'qa!'
 ### Setup YouCompleteMe
 cd ~/.vim/bundle/YouCompleteMe
-./install.sh --clang-completer
+./install.sh --clang-completer --gocode-completer

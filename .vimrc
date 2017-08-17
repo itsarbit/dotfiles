@@ -78,6 +78,9 @@ colorscheme solarized
 " Bundle 'rizzatti/funcoo.vim'
 " Bundle 'rizzatti/dash.vim'
 "
+Bundle 'posva/vim-vue'
+autocmd FileType vue syntax sync fromstart
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 " React.js
 " Bundle 'mxw/vim-jsx'
 " Plugin 'artur-shaik/vim-javacomplete2'
