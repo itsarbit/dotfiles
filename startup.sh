@@ -27,7 +27,7 @@ ln -s $WORKSPACE/github/arbit/dotfiles/.paths ~/.paths
 ln -s $WORKSPACE/github/arbit/dotfiles/.aliases ~/.aliases
 ln -s $WORKSPACE/github/arbit/dotfiles/.functions ~/.functions
 ln -s $WORKSPACE/github/arbit/dotfiles/.tmux.conf ~/.tmux.conf
-ln -s $WORKSPACE/github/arbit/dotfiles/.tmux.conf ~/.tmux-macosx
+ln -s $WORKSPACE/github/arbit/dotfiles/.tmux-macosx ~/.tmux-macosx
 ln -s $WORKSPACE/github/arbit/dotfiles/.tmux.conf ~/.tmux-linux
 
 
@@ -52,6 +52,8 @@ if ! type "fasd" > /dev/null; then
   cd fasd
   make install
 fi
+
+brew install go
 
 #### Install Vundle
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
