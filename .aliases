@@ -23,3 +23,10 @@ alias sf='fasd -sif'     # interactive file selection
 alias j='fasd_cd -d'     # cd, same functionality as j in autojump
 alias jj='fasd_cd -d -i' # cd with interactive selection
 alias killjps='kill -9 $(jps -q)'
+
+# TF
+alias tfactive='source ~/workspace/tensorflow-td/bin/activate'
+
+alias arbitpc='ssh arbitpc'
+alias python='python3.6'
+alias pip='pip3'

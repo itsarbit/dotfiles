@@ -18,7 +18,7 @@ export CSIROOT=$GOPATH/src/htc.com/csi
 export ZK_HOME=$WORKSPACE/3rdparty/zookeeper
 
 # JAVA_HOME
-export JAVA_HOME=`/usr/libexec/java_home`
+# export JAVA_HOME=`/usr/libexec/java_home`
 
 # ETCD_HOME
 export ETCD_HOME=~/Develop/workspace/github/3rdparty/etcd
@@ -28,6 +28,8 @@ export CSI_CONF_DIR=$WORKSPACE/htc/config-test
 
 export CSI_LOG_DIR=/tmp
 
+export CSIPATH=~/workspace/bitbucket/csi
+
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
 export CUDA_HOME=/usr/local/cuda
 
@@ -36,3 +38,15 @@ export HOMEBREW_GITHUB_API_TOKEN="92a9c5ddcf9002070564d0b4d45d8ce3bcc5cabd"
 export ANSIBLE_PRIVATE_KEY_FILE=~/.ssh/csiuser-dl-oregon.pem
 export ANSIBLE_SSH_CONTROL_PATH="%(directory)s/%%h-%%r"
 export ANSIBLE_HOST_KEY_CHECKING=false
+
+# export ANACONDAPATH=/Users/arbit/anaconda
+
+# export PYTHONPATH=/Library/Python/2.7/site-packages:/usr/local/lib/python2.7/site-packages
+
+export ICLOUDDRIVE=~/Library/Mobile\ Documents/com~apple~CloudDocs
+export COBOT_HOME=~/workspace/cobot_base;
+export NPM_HOME=~/.npm-global;
+
+export COBOT_API_KEY='xgTjk23SRM9Q9VFrUEFOjav0Bn4ot21W8uFLEieT'
+
+export DISPLAY=:0

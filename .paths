@@ -22,7 +22,22 @@ export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
 export PATH=$ARC_HOME/arcanist/bin:$PATH
 
 # GO binary
-# export PATH=$GOPATH/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
 
 # Latex
 PATH=$PATH:/Library/Tex/texbin
+
+# Anaconda
+PATH=$PATH:$ANACONDAPATH/bin
+
+export PATH=~/.local/bin:$PATH
+
+# codebot
+export PATH=$COBOT_HOME/bin:$PATH
+
+export PATH="/usr/local/bin:$PATH"
+
+export PATH="$NPM_HOME/bin/:$PATH"
+
+# added by Anaconda3 5.1.0 installer
+# export PATH="/anaconda3/bin:$PATH"

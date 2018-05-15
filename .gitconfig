@@ -1,8 +1,8 @@
 [users]
 	name = Arbit Chen
 [user]
-	name = Arbit Chen
-	email = arbit_chen@htc.com
+	name = Chun-Yen Chen
+	email = abtchen@ucdavis.edu
 [core]
 	editor = vim
 [color]
@@ -32,3 +32,6 @@
 	default = matching
 [http]
 	sslVerify = false
+[credential]
+	helper = !printf 'host=%s\\nprotocol=https\\n\\n' 'git-codecommit.us-east-1.amazonaws.com' | git credential-osxkeychain erase && aws codecommit credential-helper $@
+	UseHttpPath = true

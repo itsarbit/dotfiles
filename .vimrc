@@ -17,16 +17,22 @@ call vundle#rc()
 
 set encoding=utf-8
 set fillchars+=stl:\ ,stlnc:\
+set nofoldenable
 
 "set guifont=Monaco\ for\ Powerline:h16
 
 " Vundle> Utilities
 Bundle 'gmarik/vundle'
-Bundle 'klen/python-mode'
-Bundle 'Valloric/YouCompleteMe'
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
+" Bundle 'klen/python-mode'
+Bundle 'davidhalter/jedi-vim'
+autocmd FileType python call jedi#configure_call_signatures()
+" Bundle 'Valloric/YouCompleteMe'
+Bundle 'python-mode/python-mode'
+let g:pymode_rope=0
+"let g:pymode_python = 'python3'
+" let g:ycm_add_preview_to_completeopt = 1
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_autoclose_preview_window_after_insertion = 1
 
 Bundle 'majutsushi/tagbar'
 Bundle 'jdevera/vim-protobuf-syntax'
@@ -55,22 +61,22 @@ Bundle 'int3/vim-extradite'
 Bundle 'dharanasoft/rtf-highlight'
 " Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
-if has('ruby')
-  Bundle 'vim-scripts/rubycomplete.vim'
-  Bundle 'ecomba/vim-ruby-refactoring'
-  Bundle 'tpope/vim-rails'
-end
-Bundle 'tangledhelix/vim-octopress'
-"Bundle 'Rip-Rip/clang_complete'
-"Bundle 'itszero/javacomplete'
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
+" if has('ruby')
+"   Bundle 'vim-scripts/rubycomplete.vim'
+"   Bundle 'ecomba/vim-ruby-refactoring'
+"   Bundle 'tpope/vim-rails'
+" Bundle 'tpope/vim-endwise'
+" end
+" Bundle 'tangledhelix/vim-octopress'
+" Bundle 'Rip-Rip/clang_complete'
+" Bundle 'itszero/javacomplete'
+" Bundle 'LaTeX-Box-Team/LaTeX-Box'
 " Vundle> lang-independent or multi-lang supported utilities
 Bundle 'fatih/vim-go'
 Bundle 'jstemmer/gotags'
-Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/vim-space'
+" Bundle 'scrooloose/vim-space'
 " Bundle 'scrooloose/syntastic'
 " Vundle> Color scheme
 Bundle 'altercation/vim-colors-solarized'
