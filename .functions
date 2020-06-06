@@ -55,3 +55,19 @@ fasd_cd() {
     [ -d "$_fasd_ret" ] && cd "$_fasd_ret" || echo "$_fasd_ret"
   fi
 }
+
+function makisu_build() {
+    makisu_version=${MAKISU_VERSION:-latest}
+    cd ${@: -1}
+    docker run -i --rm --net host \
+        -v /var/run/docker.sock:/docker.sock \
+        -e DOCKER_HOST=unix:///docker.sock \
+        -v $(pwd):/makisu-context \
+        -v /tmp/makisu-storage:/makisu-storage \
+        gcr.io/uber-container-tools/makisu:$makisu_version build \
+            --commit=explicit \
+            --modifyfs=true \
+            --load \
+            ${@:1:${#@}-1} /makisu-context
+    cd -
+}

@@ -7,7 +7,7 @@ export ARC_HOME=$WORKSPACE/3rdparty/arc
 
 # golang
 #export GOROOT=$WORKSPACE/3rdparty/go
- export GOPATH=$WORKSPACE/go-path
+ export GOPATH="$WORKSPACE/go-path"
 #export GOPATH=$WORKSPACE/go-path/src/htc.com/grape/go
 #export GOBIN=$WORKSPACE/go-path/bin
 
@@ -16,9 +16,6 @@ export CSIROOT=$GOPATH/src/htc.com/csi
 
 # Zookeeper
 export ZK_HOME=$WORKSPACE/3rdparty/zookeeper
-
-# JAVA_HOME
-export JAVA_HOME=`/usr/libexec/java_home`
 
 # ETCD_HOME
 export ETCD_HOME=~/Develop/workspace/github/3rdparty/etcd
@@ -36,3 +33,5 @@ export HOMEBREW_GITHUB_API_TOKEN="92a9c5ddcf9002070564d0b4d45d8ce3bcc5cabd"
 export ANSIBLE_PRIVATE_KEY_FILE=~/.ssh/csiuser-dl-oregon.pem
 export ANSIBLE_SSH_CONTROL_PATH="%(directory)s/%%h-%%r"
 export ANSIBLE_HOST_KEY_CHECKING=false
+
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)

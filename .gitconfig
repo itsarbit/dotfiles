@@ -2,9 +2,12 @@
 	name = Arbit Chen
 [user]
 	name = Arbit Chen
-	email = arbit_chen@htc.com
+	email = arbit.chen@airbnb.com
 [core]
 	editor = vim
+	precomposeunicode = true
+	excludesfile = /Users/arbit_chen/.gitignore_global
+	sparseCheckout = true
 [color]
 	diff = auto
 	status = auto
@@ -15,11 +18,11 @@
   ci = commit
   st = status
   br = branch
-	lgmg = log  --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  lgmg = log  --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
   algmg = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
   lg = log  --no-merges --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
   alg = log --no-merges --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-	d = difftool
+  d = difftool
 #[diff]
 #  external = git_diff_wrapper
 #[core]

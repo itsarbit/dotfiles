@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/arbit/.oh-my-zsh
+export ZSH=/Users/arbit_chen/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -45,7 +45,7 @@ ZSH_THEME="dpoggi"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux zsh)
+plugins=(git tmux)
 
 # User configuration
 
@@ -88,11 +88,7 @@ source ~/.functions
 source ~/.credentials
 eval "$(fasd --init auto)"
 
-# The next line enables bash completion for gcloud.
-source '/Users/arbit/google-cloud-sdk/completion.zsh.inc'
 
-#source $(brew --prefix nvm)/nvm.sh
-#source '/Applications/Docker/Docker Quickstart Terminal.app/Contents/Resources/Scripts/start.sh'
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/arbit/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/arbit/Downloads/google-cloud-sdk/path.zsh.inc'; fi
