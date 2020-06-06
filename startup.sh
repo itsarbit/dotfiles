@@ -59,7 +59,7 @@ brew install go
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 #### Setup Vim
-brew install macvim --override-system-vim
+brew install macvim
 brew linkapps
 mv ~/.vimrc ~/.vimrc.bak
 ln -s $WORKSPACE/github/arbit/dotfiles/.vimrc ~/.vimrc
