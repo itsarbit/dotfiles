@@ -4,6 +4,7 @@ filetype plugin on
 
 set noshowmode
 
+set splitright
 set smartindent
 set tabstop=4
 set shiftwidth=4
@@ -17,84 +18,76 @@ call vundle#rc()
 
 set encoding=utf-8
 set fillchars+=stl:\ ,stlnc:\
+set nofoldenable
 
 "set guifont=Monaco\ for\ Powerline:h16
 
 " Vundle> Utilities
-Bundle 'gmarik/vundle'
-Bundle 'klen/python-mode'
-Bundle 'Valloric/YouCompleteMe'
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
+" Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
-Bundle 'majutsushi/tagbar'
-Bundle 'jdevera/vim-protobuf-syntax'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'Lokaltog/powerline-fonts'
-Bundle 'mileszs/ack.vim'
+""" python
+" Plugin 'klen/python-mode'
+Plugin 'davidhalter/jedi-vim'
+autocmd FileType python call jedi#configure_call_signatures()
+" Plugin 'python-mode/python-mode'
+let g:pymode_rope=0
+" let g:pymode_python = 'python3'
+Plugin 'ycm-core/YouCompleteMe'
+" let g:ycm_add_preview_to_completeopt = 1
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_autoclose_preview_window_after_insertion = 1
+
+Plugin 'majutsushi/tagbar'
+Plugin 'jdevera/vim-protobuf-syntax'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'Lokaltog/powerline-fonts'
+Plugin 'mileszs/ack.vim'
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-Bundle 'tsaleh/vim-align'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/nerdtree'
-Bundle 'sjl/splice.vim'
-Bundle 'kana/vim-textobj-user'
-Bundle 'michaeljsmith/vim-indent-object'
-" Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'kien/ctrlp.vim'
-Bundle 'airblade/vim-rooter'
-Bundle 'ervandew/supertab'
-Bundle 'vim-scripts/sudo.vim'
-" Bundle 'derekwyatt/vim-scala'
+Plugin 'tsaleh/vim-align'
+Plugin 'tpope/vim-fugitive'
+Plugin 'int3/vim-extradite'
+Plugin 'scrooloose/nerdtree'
+Plugin 'sjl/splice.vim'
+Plugin 'kana/vim-textobj-user'
+Plugin 'michaeljsmith/vim-indent-object'
+" Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'kien/ctrlp.vim'
+Plugin 'airblade/vim-rooter'
+Plugin 'ervandew/supertab'
+Plugin 'vim-scripts/sudo.vim'
+" Force saving files that require root permission
+" Plugin 'derekwyatt/vim-scala'
 if has('mac')
-  Bundle 'rafaelfranca/rtf_pygmentize'
+  Plugin 'rafaelfranca/rtf_pygmentize'
+  Plugin 'dharanasoft/rtf-highlight'
 endif
-Bundle 'int3/vim-extradite'
-Bundle 'dharanasoft/rtf-highlight'
-" Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-markdown'
+" Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-markdown'
 if has('ruby')
-  Bundle 'vim-scripts/rubycomplete.vim'
-  Bundle 'ecomba/vim-ruby-refactoring'
-  Bundle 'tpope/vim-rails'
+  Plugin 'vim-scripts/rubycomplete.vim'
+  Plugin 'ecomba/vim-ruby-refactoring'
+  Plugin 'tpope/vim-endwise'
 end
-Bundle 'tangledhelix/vim-octopress'
-"Bundle 'Rip-Rip/clang_complete'
-"Bundle 'itszero/javacomplete'
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
+" Plugin 'Rip-Rip/clang_complete'
+" Plugin 'LaTeX-Box-Team/LaTeX-Box'
 " Vundle> lang-independent or multi-lang supported utilities
-Bundle 'fatih/vim-go'
-Bundle 'jstemmer/gotags'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/vim-space'
-" Bundle 'scrooloose/syntastic'
+Plugin 'fatih/vim-go'
+Plugin 'jstemmer/gotags'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter'
+" Plugin 'scrooloose/vim-space'
+Plugin 'vim-syntastic/syntastic'
 " Vundle> Color scheme
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 colorscheme solarized
-" Bundle 'rizzatti/funcoo.vim'
-" Bundle 'rizzatti/dash.vim'
 "
-Bundle 'posva/vim-vue'
-autocmd FileType vue syntax sync fromstart
-autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
-" React.js
-" Bundle 'mxw/vim-jsx'
-" Plugin 'artur-shaik/vim-javacomplete2'
-" Make sure eslint is perfectly installed
-let g:syntastic_javascript_checkers = ['eslint']
-"g:godef_split=2
 filetype plugin indent on     " required!
-
-" use for swift
-" Bundle 'toyamarinyon/vim-swift'
 
 " Save the current file using th sudo command
 noremap <Leader>W :w !sudo tee % > /dev/null
-
 
 " * User Interface
 
@@ -105,7 +98,7 @@ if has('syntax') && (&t_Co > 2)
 endif
 
 " have fifty lines of command-line (etc) history:
-set history=50
+set history=100
 " remember all of these between sessions, but only 10 search terms; also
 " remember info for 10 files, but never any on removable disks, don't remember
 " marks in files, don't rehighlight old search patterns, and only save up to
@@ -307,7 +300,6 @@ filetype plugin on
 let NERDTreeWinPos = "left"
 let NERDChristmasTree = 1
 
-" Zero's customization goes here.
 set guifont=Monaco\ for\ Powerline:h18.00"
 " disable ASCII control seq timeout to workaround mintty bug
 set notimeout
@@ -363,7 +355,8 @@ map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
 " git viewer buffer
-map <leader>gg :Extradite<cr>
+map <leader>gg :Extradite!<cr>
+let g:extradite_width = 40
 
 nmap <F9> :NERDTreeToggle<cr>
 nmap <F8> :TagbarToggle<cr>
@@ -442,9 +435,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " enable system clipboard integration
-if has("gui_running")
-  set clipboard=unnamed
-endif
+set clipboard=unnamed
 
 " enable thrift syntax
 au BufRead,BufNewFile *.thrift set filetype=thrift
@@ -530,20 +521,14 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
-
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-
 au FileType go nmap <Leader>s <Plug>(go-implements)
-
 au FileType go nmap <Leader>i <Plug>(go-info)
-
 au FileType go nmap <Leader>e <Plug>(go-rename)
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1

@@ -35,3 +35,13 @@
 	default = matching
 [http]
 	sslVerify = false
+[credential]
+	helper = !printf 'host=%s\\nprotocol=https\\n\\n' 'git-codecommit.us-east-1.amazonaws.com' | git credential-osxkeychain erase && aws codecommit credential-helper $@
+	UseHttpPath = true
+
+[merge]
+    tool = splice
+
+[mergetool "splice"]
+    cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+    trustExitCode = true

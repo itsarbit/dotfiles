@@ -5,7 +5,6 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~" 
 alias -- -="cd -"
-#alias mvn='mvn311'
 alias mvn=mvn3
 
 # Easy typing
@@ -28,3 +27,7 @@ alias example= 'f() {echo Your arg was $1. }; f'
 alias awk1="awk '{print \$1}'"
 alias awk2="awk '{print \$2}'"
 alias awk3="awk '{print \$3}'"
+
+alias python="python3.6"
+
+alias vim="mvim -v"

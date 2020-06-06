@@ -13,7 +13,7 @@ if ! type "brew" > /dev/null; then
 fi
 
 #### Install Git and Wget
-brew install wget git tmux cmake mercurial pkg-config
+brew install wget git tmux cmake mercurial pkg-config python go nodejs
 
 # Retrieve dotfiles
 mkdir $WORKSPACE
@@ -56,7 +56,7 @@ fi
 brew install go
 
 #### Install Vundle
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 #### Setup Vim
 brew install macvim --override-system-vim

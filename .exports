@@ -11,27 +11,10 @@ export ARC_HOME=$WORKSPACE/3rdparty/arc
 #export GOPATH=$WORKSPACE/go-path/src/htc.com/grape/go
 #export GOBIN=$WORKSPACE/go-path/bin
 
-# CSI
-export CSIROOT=$GOPATH/src/htc.com/csi
-
-# Zookeeper
-export ZK_HOME=$WORKSPACE/3rdparty/zookeeper
-
-# ETCD_HOME
-export ETCD_HOME=~/Develop/workspace/github/3rdparty/etcd
-
-# CSI Config path
-export CSI_CONF_DIR=$WORKSPACE/htc/config-test
-
-export CSI_LOG_DIR=/tmp
-
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
 export CUDA_HOME=/usr/local/cuda
 
-export HOMEBREW_GITHUB_API_TOKEN="92a9c5ddcf9002070564d0b4d45d8ce3bcc5cabd"
-
-export ANSIBLE_PRIVATE_KEY_FILE=~/.ssh/csiuser-dl-oregon.pem
-export ANSIBLE_SSH_CONTROL_PATH="%(directory)s/%%h-%%r"
-export ANSIBLE_HOST_KEY_CHECKING=false
+export ICLOUDDRIVE=~/Library/Mobile\ Documents/com~apple~CloudDocs
+export NPM_HOME=~/.npm-global;
 
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
