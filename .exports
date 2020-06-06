@@ -18,7 +18,9 @@ export CSIROOT=$GOPATH/src/htc.com/csi
 export ZK_HOME=$WORKSPACE/3rdparty/zookeeper
 
 # JAVA_HOME
-# export JAVA_HOME=`/usr/libexec/java_home`
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home
+export JUNIT_HOME=/Library/Junit
+export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib/json.jar:$JAVA_HOME/lib:$JUNIT_HOME/junit-4.12.jar:.
 
 # ETCD_HOME
 export ETCD_HOME=~/Develop/workspace/github/3rdparty/etcd
