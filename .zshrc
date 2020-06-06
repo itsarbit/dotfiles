@@ -85,6 +85,9 @@ source ~/.exports
 source ~/.paths
 source ~/.aliases
 source ~/.functions
+
+source ~/.secrets
+
 # source ~/.credentials
 eval "$(fasd --init auto)"
 

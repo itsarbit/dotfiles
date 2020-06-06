@@ -5,7 +5,6 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~" 
 alias -- -="cd -"
-#alias mvn='mvn311'
 alias mvn=mvn3
 
 # Easy typing
@@ -25,8 +24,6 @@ alias jj='fasd_cd -d -i' # cd with interactive selection
 alias killjps='kill -9 $(jps -q)'
 
 # TF
-alias tfactive='source ~/workspace/tensorflow-td/bin/activate'
 
-alias arbitpc='ssh arbitpc'
 alias python='python3.6'
 alias pip='pip3'
