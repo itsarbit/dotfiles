@@ -18,3 +18,17 @@ export ICLOUDDRIVE=~/Library/Mobile\ Documents/com~apple~CloudDocs
 export NPM_HOME=~/.npm-global;
 
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export BAT_THEME="Solarized (dark)"
+  # Solarized Dark color scheme for fzf
+  #
+# export FZF_DEFAULT_OPTS='
+# --color=bg+:#073642,bg:#002b36,spinner:#719e07,hl:#586e75
+# --color=fg:#839496,header:#586e75,info:#cb4b16,pointer:#719e07
+# --color=marker:#719e07,fg+:#839496,prompt:#719e07,hl+:#719e07
+# '
+  ## Solarized Light color scheme for fzf
+# export FZF_DEFAULT_OPTS="
+#   --color fg:-1,bg:-1,hl:$blue,fg+:$base02,bg+:$base2,hl+:$blue
+#   --color info:$yellow,prompt:$yellow,pointer:$base03,marker:$base03,spinner:$yellow
+# "
+# export GOROOT="$(brew --prefix golang)/libexec"

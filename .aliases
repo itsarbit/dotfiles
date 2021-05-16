@@ -28,6 +28,6 @@ alias awk1="awk '{print \$1}'"
 alias awk2="awk '{print \$2}'"
 alias awk3="awk '{print \$3}'"
 
-alias python="python3.6"
+# alias python="python3.7"
 
 alias vim="mvim -v"

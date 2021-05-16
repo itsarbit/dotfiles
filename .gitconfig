@@ -7,7 +7,6 @@
 	editor = vim
 	precomposeunicode = true
 	excludesfile = /Users/arbit_chen/.gitignore_global
-	sparseCheckout = true
 [color]
 	diff = auto
 	status = auto
@@ -32,7 +31,7 @@
 [difftool]
 	prompt = false
 [push]
-	default = matching
+	default = current
 [http]
 	sslVerify = false
 [credential]

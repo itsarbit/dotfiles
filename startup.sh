@@ -13,7 +13,14 @@ if ! type "brew" > /dev/null; then
 fi
 
 #### Install Git and Wget
-brew install wget git tmux cmake mercurial pkg-config python go nodejs
+brew install \
+  wget \
+  git \
+  tmux \
+  cmake \
+  mercurial \
+  pkg-config \
+  python go nodejs emacs fontconfig shellcheck markdown fd ripgrep fzf
 
 # Retrieve dotfiles
 mkdir $WORKSPACE
@@ -56,14 +63,17 @@ fi
 brew install go
 
 #### Install Vundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+#### Install Plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 #### Setup Vim
 brew install macvim
 brew linkapps
 mv ~/.vimrc ~/.vimrc.bak
 ln -s $WORKSPACE/github/arbit/dotfiles/.vimrc ~/.vimrc
-vim -c 'BundleInstall' -c 'qa!'
+# vim -c 'BundleInstall' -c 'qa!'
 vim -c 'PluginInstall' -c 'qa!'
 ### Setup YouCompleteMe
 cd ~/.vim/bundle/YouCompleteMe

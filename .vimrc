@@ -11,80 +11,136 @@ set shiftwidth=4
 set expandtab
 set noai
 set spell
-set colorcolumn=100
-set rtp+=~/.vim/bundle/Vundle.vim
-set tw=80
-call vundle#rc()
+set colorcolumn=120
+set tw=100
 
 set encoding=utf-8
 set fillchars+=stl:\ ,stlnc:\
 set nofoldenable
 
-"set guifont=Monaco\ for\ Powerline:h16
 
-" Vundle> Utilities
-" Plugin 'gmarik/vundle'
-Plugin 'VundleVim/Vundle.vim'
 
+call plug#begin('~/.vim/plugged')
 """ python
-" Plugin 'klen/python-mode'
-Plugin 'davidhalter/jedi-vim'
+" Plug 'klen/python-mode'
+Plug 'davidhalter/jedi-vim'
 autocmd FileType python call jedi#configure_call_signatures()
-" Plugin 'python-mode/python-mode'
+" Plug 'python-mode/python-mode'
 let g:pymode_rope=0
 " let g:pymode_python = 'python3'
-Plugin 'ycm-core/YouCompleteMe'
-" let g:ycm_add_preview_to_completeopt = 1
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_autoclose_preview_window_after_insertion = 1
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py
+  endif
+endfunction
+Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
-Plugin 'majutsushi/tagbar'
-Plugin 'jdevera/vim-protobuf-syntax'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'Lokaltog/powerline-fonts'
-Plugin 'mileszs/ack.vim'
+Plug 'rhysd/vim-grammarous'
+let g:grammarous#default_comments_only_filetypes = {
+            \ '*' : 1, 'help' : 0, 'markdown' : 0,
+            \ }
+Plug 'zxqfl/tabnine-vim'
+Plug 'majutsushi/tagbar'
+Plug 'jdevera/vim-protobuf-syntax'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='solarized'
+Plug 'Lokaltog/powerline-fonts'
+Plug 'mileszs/ack.vim'
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-Plugin 'tsaleh/vim-align'
-Plugin 'tpope/vim-fugitive'
-Plugin 'int3/vim-extradite'
-Plugin 'scrooloose/nerdtree'
-Plugin 'sjl/splice.vim'
-Plugin 'kana/vim-textobj-user'
-Plugin 'michaeljsmith/vim-indent-object'
-" Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'kien/ctrlp.vim'
-Plugin 'airblade/vim-rooter'
-Plugin 'ervandew/supertab'
-Plugin 'vim-scripts/sudo.vim'
+Plug 'tsaleh/vim-align'
+""" GIT
+Plug 'tpope/vim-fugitive'
+Plug 'int3/vim-extradite'
+Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
+
+""" Java
+Plug 'udalov/kotlin-vim'
+
+
+Plug 'scrooloose/nerdtree'
+Plug 'sjl/splice.vim'
+Plug 'kana/vim-textobj-user'
+Plug 'michaeljsmith/vim-indent-object'
+" Plug 'nelstrom/vim-textobj-rubyblock'
+" Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+" Always enable preview window on the right with 60% width
+let g:fzf_preview_window = 'right:45%'
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+" [Commands] --expect expression for directly executing the command
+let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+let g:fzf_colors =
+\ { "fg":      ["fg", "Normal"],
+  \ "bg":      ["bg", "Normal"],
+  \ "hl":      ["fg", "IncSearch"],
+  \ "fg+":     ["fg", "CursorLine", "CursorColumn", "Normal"],
+  \ "bg+":     ["bg", "CursorLine", "CursorColumn"],
+  \ "hl+":     ["fg", "IncSearch"],
+  \ "info":    ["fg", "IncSearch"],
+  \ "border":  ["fg", "Ignore"],
+  \ "prompt":  ["fg", "Comment"],
+  \ "pointer": ["fg", "IncSearch"],
+  \ "marker":  ["fg", "IncSearch"],
+  \ "spinner": ["fg", "IncSearch"],
+  \ "header":  ["fg", "WildMenu"] }
+" let g:fzf_colors =
+" \ { 'fg':      ['fg', 'Normal'],
+"   \ 'bg':      ['bg', 'Normal'],
+"   \ 'hl':      ['fg', 'Comment'],
+"   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+"   \ 'hl+':     ['fg', 'Statement'],
+"   \ 'info':    ['fg', 'PreProc'],
+"   \ 'border':  ['fg', 'Ignore'],
+"   \ 'prompt':  ['fg', 'Conditional'],
+"   \ 'pointer': ['fg', 'Exception'],
+"   \ 'marker':  ['fg', 'Keyword'],
+"   \ 'spinner': ['fg', 'Label'],
+"   \ 'header':  ['fg', 'EndOfBuffer'] }
+Plug 'airblade/vim-rooter'
+Plug 'ervandew/supertab'
+Plug 'vim-scripts/sudo.vim'
 " Force saving files that require root permission
-" Plugin 'derekwyatt/vim-scala'
+" Plug 'derekwyatt/vim-scala'
 if has('mac')
-  Plugin 'rafaelfranca/rtf_pygmentize'
-  Plugin 'dharanasoft/rtf-highlight'
+  Plug 'rafaelfranca/rtf_pygmentize'
+  Plug 'dharanasoft/rtf-highlight'
 endif
-" Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-markdown'
+" Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
 if has('ruby')
-  Plugin 'vim-scripts/rubycomplete.vim'
-  Plugin 'ecomba/vim-ruby-refactoring'
-  Plugin 'tpope/vim-endwise'
+  Plug 'vim-scripts/rubycomplete.vim'
+  Plug 'ecomba/vim-ruby-refactoring'
+  Plug 'tpope/vim-endwise'
 end
-" Plugin 'Rip-Rip/clang_complete'
-" Plugin 'LaTeX-Box-Team/LaTeX-Box'
+" Plug 'Rip-Rip/clang_complete'
+" Plug 'LaTeX-Box-Team/LaTeX-Box'
 " Vundle> lang-independent or multi-lang supported utilities
-Plugin 'fatih/vim-go'
-Plugin 'jstemmer/gotags'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdcommenter'
-" Plugin 'scrooloose/vim-space'
-Plugin 'vim-syntastic/syntastic'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'jstemmer/gotags'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdcommenter'
+" Plug 'scrooloose/vim-space'
+Plug 'vim-syntastic/syntastic'
+Plug 'dense-analysis/ale'
 " Vundle> Color scheme
-Plugin 'altercation/vim-colors-solarized'
-colorscheme solarized
+Plug 'altercation/vim-colors-solarized'
 "
-filetype plugin indent on     " required!
+call plug#end()
 
 " Save the current file using th sudo command
 noremap <Leader>W :w !sudo tee % > /dev/null
@@ -300,7 +356,6 @@ filetype plugin on
 let NERDTreeWinPos = "left"
 let NERDChristmasTree = 1
 
-set guifont=Monaco\ for\ Powerline:h18.00"
 " disable ASCII control seq timeout to workaround mintty bug
 set notimeout
 if !has("gui_running")
@@ -443,12 +498,6 @@ au! Syntax thrift source ~/.vim/syntax/thrift.vim
 
 " plugins
 "
-" > powerline
-"let g:Powerline_theme="skwp"
-"let g:Powerline_colorscheme="skwp"
-"let g:Powerline_symbols = 'fancy'
-" show me trailer whitespace is found in current buffer
-call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 " > ack
 nnoremap <leader>a :Ack!<space>
 nmap <F9> :NERDTreeToggle<cr>
@@ -526,7 +575,7 @@ au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+" au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>e <Plug>(go-rename)
@@ -542,3 +591,43 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 set foldlevelstart=20
 au BufNewFile,BufRead *.hql set filetype=hive expandtab
 au BufNewFile,BufRead *.q set filetype=hive expandtab
+
+""" Git setup
+" Use fontawesome icons as signs
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '>'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '^'
+let g:gitgutter_sign_modified_removed = '<'
+let g:gitgutter_override_sign_column_highlight = 1
+highlight SignColumn guibg=bg
+highlight SignColumn ctermbg=bg
+" Update sign column every 2 second
+" set updatetime=2000
+" Jump between hunks
+nmap <Leader>gn <Plug>(GitGutterNextHunk)
+nmap <Leader>gp <Plug>(GitGutterPrevHunk)
+" Hunk-add and hunk-revert for chunk staging
+nmap <Leader>ga <Plug>(GitGutterStageHunk)
+nmap <Leader>gu <Plug>(GitGutterUndoHunk)
+" Open vimagit pane
+nnoremap <leader>gs :Magit<CR>       " git status
+" Show commits for every source line
+nnoremap <Leader>gb :Gblame<CR>  " git blame
+" Add the entire file to the staging area
+nnoremap <Leader>gaf :Gw<CR>      " git add file
+
+
+let g:ale_sign_column_always=1
+let g:ale_sign_error='??'
+let g:ale_sign_warning='--'
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+
+
+noremap <leader>f :Files<cr>
+nnoremap <C-p> :Files<CR>
+nmap <leader>fg :GFiles<CR>
+nmap <leader>fgs :GFiles?<CR>
+nmap <leader>fg :Commits<CR>
+nmap <leader>fgc :BCommits<CR>

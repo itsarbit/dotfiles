@@ -81,7 +81,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/.exports
-source ~/.exports
 source ~/.paths
 source ~/.aliases
 source ~/.functions
@@ -90,3 +89,7 @@ source ~/.secrets
 
 # source ~/.credentials
 eval "$(fasd --init auto)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(rbenv init -)"
