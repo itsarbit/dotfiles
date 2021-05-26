@@ -4,12 +4,12 @@
 # computer. For now is OSX only
 #############################################################################
 
-export WORKSPACE=/Users/arbit/Develop/workspace
+export WORKSPACE=$HOME/Develop/workspace
 
 #### Install Homebrew
 #### Homebrew however is already installed before retrieving the script
 if ! type "brew" > /dev/null; then
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
 #### Install Git and Wget
@@ -21,6 +21,8 @@ brew install \
   mercurial \
   pkg-config \
   python go nodejs emacs fontconfig shellcheck markdown fd ripgrep fzf
+
+$(brew --prefix)/opt/fzf/install
 
 # Retrieve dotfiles
 mkdir $WORKSPACE
@@ -62,19 +64,14 @@ fi
 
 brew install go
 
-#### Install Vundle
-# git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-#### Install Plug
+#### Install Plug for vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 #### Setup Vim
-brew install macvim
-brew linkapps
+# brew install macvim
+# brew linkapps
 mv ~/.vimrc ~/.vimrc.bak
 ln -s $WORKSPACE/github/arbit/dotfiles/.vimrc ~/.vimrc
 # vim -c 'BundleInstall' -c 'qa!'
 vim -c 'PluginInstall' -c 'qa!'
-### Setup YouCompleteMe
-cd ~/.vim/bundle/YouCompleteMe
-./install.sh --clang-completer --gocode-completer

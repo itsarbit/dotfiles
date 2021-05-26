@@ -1,5 +1,7 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/arbit_chen/.oh-my-zsh
+[ -d "/Users/arbit_chen" ] &&  export ZSH=/Users/arbit_chen/.oh-my-zsh
+[ -d "/Users/arbitchen" ] &&  export ZSH=/Users/arbitchen/.oh-my-zsh
+[ -d "/Users/arbit" ] &&  export ZSH=/Users/arbit/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -85,11 +87,18 @@ source ~/.paths
 source ~/.aliases
 source ~/.functions
 
-source ~/.secrets
+if [ -f "~/.secrets" ]; then
+  source ~/.secrets
+fi
 
-# source ~/.credentials
+if [ -f "~/.credentials" ]; then
+  source ~/.credentials
+fi
+
 eval "$(fasd --init auto)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-eval "$(rbenv init -)"
+# 
+if type "rbenv" > /dev/null; then
+  eval "$(rbenv init -)"
+fi
