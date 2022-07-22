@@ -31,3 +31,5 @@ alias awk3="awk '{print \$3}'"
 # alias python="python3.7"
 
 alias vim="mvim -v"
+alias bazel=$(which bazelisk)
+alias g5=git-review

@@ -6,7 +6,7 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Golang
 # export PATH=$GOROOT/bin:$PATH
 #export PATH=$PATH:/usr/local/go/bin
-export PATH=/usr/local/opt/go@1.14/bin:$PATH
+export PATH=/usr/local/opt/go@1.17/bin:$PATH
 
 # HBase
 #export PATH=$HBASE_HOME/bin:$PATH

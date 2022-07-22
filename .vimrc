@@ -11,8 +11,8 @@ set shiftwidth=4
 set expandtab
 set noai
 set spell
-set colorcolumn=120
-set tw=100
+set colorcolumn=80
+set tw=79
 
 set encoding=utf-8
 set fillchars+=stl:\ ,stlnc:\
@@ -47,6 +47,11 @@ let g:grammarous#default_comments_only_filetypes = {
             \ '*' : 1, 'help' : 0, 'markdown' : 0,
             \ }
 Plug 'zxqfl/tabnine-vim'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+autocmd FileType bzl,bazel AutoFormatBuffer buildifier
+Plug 'google/vim-glaive'
+Plug 'bazelbuild/vim-bazel'
 Plug 'majutsushi/tagbar'
 Plug 'jdevera/vim-protobuf-syntax'
 Plug 'vim-airline/vim-airline'
@@ -131,6 +136,7 @@ end
 " Plug 'LaTeX-Box-Team/LaTeX-Box'
 " Vundle> lang-independent or multi-lang supported utilities
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 Plug 'jstemmer/gotags'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
@@ -193,8 +199,8 @@ set nomodeline
 " don't make it look like there are line breaks where there aren't:
 set nowrap
 
-" use indents of 2 spaces, and have them copied down lines:
-set tabstop=2
+" use indents of 4 spaces, and have them copied down lines:
+set tabstop=4
 set shiftwidth=2
 set shiftround
 set expandtab
@@ -437,7 +443,7 @@ set completeopt=longest,menuone,preview
 
 set list
 set modelines=0
-set noeol
+" set noeol
 set numberwidth=5
 set noswapfile
 
@@ -565,7 +571,6 @@ let g:tagbar_type_go = {
 let g:SuperTabDefaultCompletionType = "context"
 
 
-let g:go_fmt_command = "goimports"
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
@@ -613,7 +618,7 @@ nmap <Leader>gu <Plug>(GitGutterUndoHunk)
 " Open vimagit pane
 nnoremap <leader>gs :Magit<CR>       " git status
 " Show commits for every source line
-nnoremap <Leader>gb :Gblame<CR>  " git blame
+nnoremap <Leader>gb :Git blame<CR>  " git blame
 " Add the entire file to the staging area
 nnoremap <Leader>gaf :Gw<CR>      " git add file
 
@@ -624,6 +629,9 @@ let g:ale_sign_warning='--'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
 
 noremap <leader>f :Files<cr>
 nnoremap <C-p> :Files<CR>
@@ -631,3 +639,10 @@ nmap <leader>fg :GFiles<CR>
 nmap <leader>fgs :GFiles?<CR>
 nmap <leader>fg :Commits<CR>
 nmap <leader>fgc :BCommits<CR>
+
+nmap <leader>bb :Bazel build
+nmap <leader>bt :Bazel test
+nmap <leader>bba :Bazel build //aircell/...<cr>
+nmap <leader>bta :Bazel test //aircell/...<cr>
+nmap <leader>bbap :Bazel build //aircell/provision/...<cr>
+nmap <leader>btap :Bazel test //aircell/provision/...<cr>

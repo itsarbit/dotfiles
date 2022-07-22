@@ -32,3 +32,4 @@ export BAT_THEME="Solarized (dark)"
 #   --color info:$yellow,prompt:$yellow,pointer:$base03,marker:$base03,spinner:$yellow
 # "
 # export GOROOT="$(brew --prefix golang)/libexec"
+export GO111MODULE=on

@@ -22,6 +22,10 @@
   lg = log  --no-merges --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
   alg = log --no-merges --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
   d = difftool
+  mail = review mail
+  pending = review pending
+  submit = review submit
+  sync = review sync
 #[diff]
 #  external = git_diff_wrapper
 #[core]
