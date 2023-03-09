@@ -2,7 +2,7 @@
 	name = Arbit Chen
 [user]
 	name = Arbit Chen
-	email = arbit.chen@airbnb.com
+	email = itsarbit@gmail.com
 [core]
 	editor = vim
 	precomposeunicode = true
@@ -39,7 +39,7 @@
 [http]
 	sslVerify = false
 [credential]
-	helper = !printf 'host=%s\\nprotocol=https\\n\\n' 'git-codecommit.us-east-1.amazonaws.com' | git credential-osxkeychain erase && aws codecommit credential-helper $@
+	helper = cache
 	UseHttpPath = true
 
 [merge]

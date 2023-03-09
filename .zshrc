@@ -1,5 +1,4 @@
-# Path to your oh-my-zsh installation.
-[ -d /Users/arbit_chen ] &&  export ZSH=/Users/arbit_chen/.oh-my-zsh
+# Path to your oh-my-zsh installation.  [ -d /Users/arbit_chen ] &&  export ZSH=/Users/arbit_chen/.oh-my-zsh
 [ -d /Users/arbitchen ] &&  export ZSH=/Users/arbitchen/.oh-my-zsh
 [ -d /Users/arbit ] &&  export ZSH=/Users/arbit/.oh-my-zsh
 
@@ -47,7 +46,7 @@ ZSH_THEME="dpoggi"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux kube-ps1)
+plugins=(git)
 
 # User configuration
 
@@ -95,7 +94,7 @@ if [ -f ~/.credentials ]; then
   source ~/.credentials
 fi
 
-eval "$(fasd --init auto)"
+# eval "$(fasd --init auto)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # 
@@ -103,35 +102,37 @@ if type rbenv > /dev/null; then
   eval "$(rbenv init -)"
 fi
 
-### Added by Zinit's installer
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f%b"
-fi
+## Added by Zinit's installer
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
-source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zinit-zsh/z-a-rust \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-bin-gem-node
 
 ### End of Zinit's installer chunk
 #
 #
-export KUBE_PS1_SYMBOL_PADDING=false
-export KUBE_PS1_SYMBOL_ENABLE=false
-export KUBE_PS1_CTX_COLOR=yellow
-# export KUBE_PS1_NS_COLOR=magenta
-zplugin light jonmosco/kube-ps1
-PROMPT='$(kube_ps1)'$PROMPT
+# export KUBE_PS1_SYMBOL_PADDING=false
+# export KUBE_PS1_SYMBOL_ENABLE=false
+# export KUBE_PS1_CTX_COLOR=yellow
+# # export KUBE_PS1_NS_COLOR=magenta
+# zplugin light jonmosco/kube-ps1
+# PROMPT='$(kube_ps1)'$PROMPT
 
-source <(kubebuilder completion zsh)
+# source <(zsh)
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk

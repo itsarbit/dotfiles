@@ -4,7 +4,7 @@
 # computer. For now is OSX only
 #############################################################################
 
-export WORKSPACE=$HOME/Develop/workspace
+export WORKSPACE=$HOME/workspace
 
 #### Install Homebrew
 #### Homebrew however is already installed before retrieving the script
@@ -62,7 +62,13 @@ if ! type "fasd" > /dev/null; then
   make install
 fi
 
-brew install go
+brew install go minikube
+brew install --cask visual-studio-code
+
+### for vscode con
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
+defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool false
 
 #### Install Plug for vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \

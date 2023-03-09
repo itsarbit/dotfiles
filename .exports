@@ -1,6 +1,5 @@
 # Basic
-export DEVHOME=~/Develop
-export WORKSPACE=$DEVHOME/workspace
+export WORKSPACE=$HOME/workspace
 
 # arc
 export ARC_HOME=$WORKSPACE/3rdparty/arc
